@@ -1,0 +1,121 @@
+type Query {
+    booking: Booking
+}
+
+type Carrier {
+    code: String
+    name: String
+}
+
+type Status {
+    code: String
+    name: String
+}
+
+type Cabin {
+    code: String
+    name: String
+}
+
+type Equipment {
+    code: String
+    name: String
+}
+
+type Class {
+    code: String
+}
+
+type Terminal {
+    name: String
+}
+
+type OperatingFlight {
+    number: String
+    carrier: Carrier
+    duration: String
+    flown: Boolean
+    checkInStart: String
+    localCheckInStart: String
+    checkInEnd: String
+    localCheckInEnd: String
+    scheduledArrival: String
+    localScheduledArrival: String
+    scheduledDeparture: String
+    localScheduledDeparture: String
+    arrivalTerminal: Terminal
+    cabin: Cabin
+    equipment: Equipment
+}
+
+type MarketingFlight {
+    number: String
+    carrier: Carrier
+    status: Status
+    numberOfStops: Int
+    sellingClass: Class
+    operatingFlight: OperatingFlight
+}
+
+type Country {
+    code: String
+    name: String
+}
+
+type City {
+    IATACode: String
+    name: String
+    country: Country
+}
+
+type Airport {
+    IATACode: String
+    name: String
+    city: City
+}
+
+type FlightSegment {
+    id: ID
+    type: String
+    informational: Boolean
+    departFrom: Airport
+    arriveOn: Airport
+    marketingFlight: MarketingFlight
+}
+
+type Connection {
+    id: ID
+    duration: String
+    origin: Airport
+    destination: Airport
+    segments: [FlightSegment]
+}
+
+type Itinerary {
+    type: String,
+    connections: [Connection]
+}
+
+type ContactDetail {
+    class: String,
+    address: String
+}
+
+type PassangerTitle {
+    name: String
+    code: String
+}
+
+type Passanger {
+    id: ID
+    firstName: String
+    lastName: String
+    title: PassangerTitle
+}
+
+type Booking {
+    bookingCode: ID
+    contactDetails: [ContactDetail]
+    itinerary: Itinerary
+    passengers: Passanger
+}
