@@ -1,5 +1,6 @@
 type Query {
-    booking: Booking
+    bookings: [Booking]
+    booking (code: ID!, lastName: String!): Booking
 }
 
 type Carrier {
@@ -117,5 +118,5 @@ type Booking {
     bookingCode: ID
     contactDetails: [ContactDetail]
     itinerary: Itinerary
-    passengers: Passanger
+    passenger: Passanger
 }

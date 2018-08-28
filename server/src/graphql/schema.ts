@@ -1,12 +1,15 @@
 import { makeExecutableSchema } from 'graphql-tools';
 const typeDefs = require('./typeDefs.graphql');
-const mock = require('../mock.json');
+const mock = require('../bookings-mock.json');
 
 const mockBooking = mock;
 
 const resolvers = {
     Query: {
-        booking: () => mockBooking
+        bookings: () => mockBooking,
+        booking: (root, { code, lastName }) =>  mockBooking.find(({ bookingCode, passenger }) => {
+                return bookingCode === code && passenger.lastName === lastName
+            })
     }
 };
 
