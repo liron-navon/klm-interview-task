@@ -9,6 +9,11 @@ const port = process.env.PORT || 3000;
 const isProduction = process.env.NODE_ENV === 'production';
 const app = express();
 
+//catch unhandled errors
+process.on('uncaughtException', function(err) {
+    console.error( 'UNCAUGHT EXCEPTION', err.stack, err.message );
+});
+
 // required for graphql to resolve request body in express
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
