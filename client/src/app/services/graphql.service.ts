@@ -12,7 +12,7 @@ export class GraphqlService {
 
   constructor(private apollo: Apollo) {}
 
-  findBooking(variables: {code: string, lastName: string}): Observable<Booking | null> {
+  fetchBooking(variables: {code: string, lastName: string}): Observable<Booking | null> {
     return this.apollo
       .query<{ booking: Booking }>({
         query: findBookingQuery,

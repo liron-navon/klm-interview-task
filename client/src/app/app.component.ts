@@ -13,7 +13,7 @@ export class AppComponent {
   constructor(private api: GraphqlService) {}
 
   findBooking(formData: {code: string, lastName: string}) {
-    this.api.findBooking(formData)
+    this.api.fetchBooking(formData)
       .subscribe((data: Booking | null) =>  {
         if (data) {
           this.message = AppComponent.createBookingMessage(data)
