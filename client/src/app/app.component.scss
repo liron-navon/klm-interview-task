@@ -2,7 +2,7 @@
 
 .form-container {
   @media screen and (min-width: map-get($breakPoints, mobileMediumWidth)) {
-    max-width: map-get($breakPoints, mobileMediumWidth);
+    max-width: 350px;
     border: black 1px solid;
     margin: 50px auto 0 auto;
     height: auto;
