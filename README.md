@@ -2,6 +2,8 @@
 
 This task is seperated to two projects, a client written in angular 6 and typescript, and a server written in node.js with typescript.
 
+You can see the hosted on [netlifly](https://liron-klm-interview-task.netlify.com/), or use the graphql playground hosted on [heroku](https://whispering-lowlands-24071.herokuapp.com/graphql).
+
 ## The Server
 The server is a simple express-apollo server, written with typescript that serves some mock data through a GraphQL endpoint.
 The server has a few unit tests to test the GraphQL schemas.
