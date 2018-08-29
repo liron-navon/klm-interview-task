@@ -1,0 +1,82 @@
+@import "~src/sass/config";
+
+.booking-form {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: map-get($colors, darkBlue);
+
+  &-title {
+    text-align: center;
+    font-size: 3.2rem;
+    line-height: 1.4;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 8px 0;
+  }
+
+  &-seperator {
+    max-width: 20px;
+    width: 50%;
+    border: 0;
+    height: 4px;
+    background: map-get($colors, darkBlue);
+    margin-bottom: 8px;
+  }
+
+  &-description {
+    text-align: start;
+    font-size: 1.4rem;
+    line-height: 2;
+    margin: 16px 0;
+  }
+
+  &-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &-input-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-input {
+      padding: 8px 0;
+      margin: 8px 0;
+    }
+
+    &-label {
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-align: start;
+      display: flex;
+      flex-direction: column;
+
+      &.color-danger {
+        color: map-get($colors, red);
+      }
+    }
+
+    &-button {
+      background-color: map-get($colors, red);
+      border: none;
+      color: white;
+      padding: 12px 24px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 1.6rem;
+      margin: 32px auto 0 auto;
+      max-width: 200px;
+      cursor: pointer;
+      transition: opacity 160ms ease-in-out, transform 160ms ease-in-out;
+      &:disabled {
+        opacity: 0.5;
+        cursor: unset;
+      }
+    }
+  }
+}

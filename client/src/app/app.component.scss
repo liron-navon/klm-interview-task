@@ -1,5 +1,14 @@
 @import "~src/sass/config";
 
+.success-message {
+  color: map-get($colors, darkBlue);
+  font-size: 1.4rem;
+  line-height: 2;
+  text-align: center;
+  max-width: 300px;
+  margin: 16px auto 0 auto;
+}
+
 .form-container {
   @media screen and (min-width: map-get($breakPoints, mobileMediumWidth)) {
     max-width: 350px;

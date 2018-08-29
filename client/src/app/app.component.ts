@@ -9,11 +9,17 @@ import {Booking} from './interfaces/booking';
 })
 export class AppComponent {
 
+  message = '';
+
   constructor(private api: GraphqlService) {}
 
   findBooking(formData: {code: string, lastName: string}) {
     this.api.findBooking(formData)
-      .subscribe((data: Booking) =>  {
+      .subscribe((data: Booking | null) =>  {
+        if (!data) {
+          this.message = 'Sorry, couldn\'t find your booking';
+          return;
+        }
         const firstConnection = data.itinerary.connections[0];
         const originAirport = firstConnection.origin.name;
         const destinationAirport = firstConnection.destination.name;
@@ -22,7 +28,7 @@ export class AppComponent {
         const duration = Math.round(+firstConnection.duration / 60);
         const hoursPluralised = duration === 1 ? 'hour': 'hours';
 
-        alert(`Hello ${titleName} ${lastName}, your flight from ${originAirport} to ${destinationAirport} will take about ${duration} ${hoursPluralised}`)
+        this.message = `Hello ${titleName} ${lastName}, your flight from ${originAirport} to ${destinationAirport} will take about ${duration} ${hoursPluralised}`
       })
   }
 

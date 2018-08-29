@@ -1,5 +1,7 @@
 <app-nav-bar></app-nav-bar>
 
+<p *ngIf="message" class="success-message">{{message}}</p>
+
 <div class="form-container">
   <app-booking-form (onSubmit)="findBooking($event)"></app-booking-form>
 </div>

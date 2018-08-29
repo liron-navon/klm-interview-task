@@ -1,0 +1,41 @@
+<div class="booking-form">
+  <h1 class="booking-form-title">Retrieve your booking</h1>
+
+  <hr class="booking-form-seperator"/>
+
+  <p class="booking-form-description">
+    You can find your booking by filling out your family name and the booking code in your booking confirmation.
+  </p>
+
+  <form class="booking-form-form"
+        [formGroup]="bookingForm"
+        (ngSubmit)="onSubmit()">
+
+    <div class="booking-form-form-input-container">
+      <label class="booking-form-form-label"
+             [ngClass]="{ 'color-danger': hasErrors('bookingCode') }">
+        Booking code {{hasErrors('bookingCode') ? ' - Invalid' : ''}}
+        <input class="booking-form-form-input"
+               formControlName="bookingCode"
+               type="text">
+      </label>
+    </div>
+
+    <div class="booking-form-form-input-container">
+      <label class="booking-form-form-label"
+             [ngClass]="{ 'color-danger': hasErrors('lastName') }">
+        Family name {{hasErrors('lastName') ? ' - Invalid' : ''}}
+        <input class="booking-form-form-input"
+               formControlName="lastName"
+               type="text">
+      </label>
+    </div>
+
+    <button class="booking-form-form-button"
+            [disabled]="!bookingForm.valid">
+      Retrieve booking
+    </button>
+
+  </form>
+
+</div>
