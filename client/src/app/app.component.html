@@ -1,9 +1,5 @@
 <app-nav-bar></app-nav-bar>
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
 
-<app-booking-form></app-booking-form>
+<div class="form-container">
+  <app-booking-form (onSubmit)="findBooking($event)"></app-booking-form>
+</div>
