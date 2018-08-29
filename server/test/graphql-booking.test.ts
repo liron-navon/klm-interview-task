@@ -7,7 +7,7 @@ describe('Booking Schema', () => {
     const schema = makeExecutableSchema({typeDefs});
     addMockFunctionsToSchema({schema});
 
-    it('querying bookings should work', () => {
+    test('querying bookings should work', () => {
         expect.assertions(2);
         const query = `
             query getBookings {
@@ -25,7 +25,7 @@ describe('Booking Schema', () => {
         });
     });
 
-    it('querying booking by id and name should work', () => {
+    test('querying booking by id and name should work', () => {
         expect.assertions(2);
         const query = `
             query getBooking($code: ID!, $lastName: String!) {
@@ -47,7 +47,7 @@ describe('Booking Schema', () => {
         });
     });
 
-    it('querying bookings poorly should fail', () => {
+    test('querying bookings poorly should fail', () => {
         expect.assertions(1);
         const query = `
             query getBooking($code2: ID!, $lastName1: String!) {
