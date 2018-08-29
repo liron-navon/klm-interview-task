@@ -2,7 +2,8 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder} from '@angular/forms';
 import {Validators, ValidatorFn, AbstractControl, ValidationErrors} from '@angular/forms';
 
-export function validateByRegex(regex: RegExp, name: string): ValidatorFn {
+// validate an input field by regex
+function validateByRegex(regex: RegExp, name: string): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     const err = regex.test(control.value);
     console.log(name, 'isValid?', err);
