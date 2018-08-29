@@ -14,7 +14,7 @@ const app = express();
 
 app.use(cors({
     origin: (origin, cb) => {
-        if (!origin) {
+        if (!origin || origin.startsWith('http://localhost')) {
             return cb(null, true);
         }
         allowedDomains[origin] ? cb(null, true) : new Error('not allowed by CORS')
