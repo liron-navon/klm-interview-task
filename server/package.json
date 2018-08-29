@@ -13,7 +13,7 @@
     "tslint": "tslint -c tslint.json -p tsconfig.json"
   },
   "author": "liron-navon",
-  "repository": "https://github.com/liron-navon/ytdl-express-server",
+  "repository": "https://github.com/liron-navon/klm-interview-task",
   "license": "ISC",
   "dependencies": {
     "apollo-server": "^2.0.5",
