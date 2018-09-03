@@ -6,7 +6,6 @@ import {Validators, ValidatorFn, AbstractControl, ValidationErrors} from '@angul
 function validateByRegex(regex: RegExp, name: string): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     const err = regex.test(control.value);
-    console.log(name, 'isValid?', err);
     return err ?  null: {[name]: control.value};
   };
 }

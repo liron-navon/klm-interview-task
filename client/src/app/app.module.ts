@@ -9,12 +9,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ApolloBoostModule, ApolloBoost } from 'apollo-angular-boost';
 import { HttpLinkModule } from 'apollo-angular-link-http';
 import { HttpClientModule } from '@angular/common/http';
+import { OnServerReadyComponent } from './components/on-server-ready/on-server-ready.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    BookingFormComponent
+    BookingFormComponent,
+    OnServerReadyComponent
   ],
   imports: [
     BrowserModule,

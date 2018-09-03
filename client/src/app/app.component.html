@@ -1,7 +1,11 @@
-<app-nav-bar></app-nav-bar>
+<app-on-server-ready>
 
-<p *ngIf="message" class="success-message">{{message}}</p>
+  <app-nav-bar></app-nav-bar>
 
-<div class="form-container">
-  <app-booking-form (onSubmit)="findBooking($event)"></app-booking-form>
-</div>
+  <p *ngIf="message" class="success-message">{{message}}</p>
+
+  <div class="form-container">
+    <app-booking-form (onSubmit)="findBooking($event)"></app-booking-form>
+  </div>
+
+</app-on-server-ready>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {GraphqlService} from "./services/graphql.service";
+import {GraphqlService} from './services/graphql.service';
 import {Booking} from './interfaces/booking';
 
 @Component({
