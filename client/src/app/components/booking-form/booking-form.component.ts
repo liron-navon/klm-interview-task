@@ -3,10 +3,10 @@ import {FormBuilder} from '@angular/forms';
 import {Validators, ValidatorFn, AbstractControl, ValidationErrors} from '@angular/forms';
 
 // validate an input field by regex
-function validateByRegex(regex: RegExp, name: string): ValidatorFn {
+function validateByRegex(regex: RegExp): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     const err = regex.test(control.value);
-    return err ?  null : {[name]: control.value};
+    return err ?  null : {'regexError': control.value};
   };
 }
 
@@ -23,13 +23,13 @@ export class BookingFormComponent implements OnInit {
       Validators.required,
       Validators.minLength(5),
       Validators.maxLength(6),
-      validateByRegex(/^[a-zA-Z 2-9\.\,\+\-]*$/, 'bookingCode') // all characters and numbers 2-9
+      validateByRegex(/^[a-zA-Z 2-9\.\,\+\-]*$/) // all characters and numbers 2-9
     ]],
     lastName: ['',[
       Validators.required,
       Validators.minLength(2),
       Validators.maxLength(30),
-      validateByRegex(/^[a-zA-Z]*$/, 'lastName') // only english alphabet
+      validateByRegex(/^[a-zA-Z]*$/) // only english alphabet
     ]],
   });
   
